@@ -1,48 +1,16 @@
-<!DOCTYPE>
-<html>
-	<head>
-		<meta charset="utf-8">
-		<title>Pin Code</title>
-		<style>
-			#gen {
-  			max-width: 100px;
-  			margin: auto;
-			}
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <title>Pin App</title>  
+</head>  
+<body>  
 
-			#pins{
-				margin: auto;
-				width: 300px;
-				height: 200px;
-				background-color: lightblue;
-			}
-
-		</style>
-	</head>
-	<body>
-		<div id = "gen">
-			<h>Pin Length</h>
-			<input type="number" min="1" max="100" step="1" value="4" size="4">
-			<p></p>
-			<h>Digit Options</h>
-			<input type="checkbox" name = "zero" value="0"><h>0</h><br>
-			<input type="checkbox" name = "one" value="1"><h>1</h><br>
-			<input type="checkbox" name = "two" value="2"><h>2</h><br>
-			<input type="checkbox" name = "three" value="3"><h>3</h><br>
-			<input type="checkbox" name = "four" value="4"><h>4</h><br>
-			<input type="checkbox" name = "five" value="5"><h>5</h><br>
-			<input type="checkbox" name = "six" value="6"><h>6</h><br>
-			<input type="checkbox" name = "seven" value="7"><h>7</h><br>
-			<input type="checkbox" name = "eight" value="8"><h>8</h><br>
-			<input type="checkbox" name = "nine" value="9"><h>9</h><br>
-			<p></p>
-			<button type="submit">Submit</button>
-		</div>
-		<h1></h1>
-		
-		<center><h>Possible Pin Count: 0</h></center>
-		<div id="pins">
-			<p>Perfect</p>
-		</div>
-		
-	</body>
+<form method="post">
+	{% csrf_token %}
+	{{form.as_p}}
+	<button type="submit" value="submit" name="submit">Submit</button>
+</form>
+<h1>{{ name }}</h1>
+</body>
 </html>
