@@ -11,6 +11,9 @@
 	{{form.as_p}}
 	<button type="submit" value="submit" name="submit">Submit</button>
 </form>
-<h1>{{ name }}</h1>
+<h1>{{ length }}</h1>
+{% for item in values %}
+	<p>{{ item }}</p>
+{% endfor %}
 </body>
 </html>
