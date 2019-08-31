@@ -14,7 +14,7 @@ values = []
 
 def method(a,l):
 	if a[l:l+1] in myList:
-		#global counter
+		global counter
 		counter = counter + 1
 
 	if counter == length:
@@ -50,7 +50,7 @@ def index(request):
 				if method(str_x,m):
 					continue
 
-	context = {'form':myForm, 'length':length,'values':values}
+	context = {'form':myForm,'values':values}
 
 	return render(request,"home.html",context)
 
