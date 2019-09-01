@@ -3,27 +3,23 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from pinApp.forms import SimpleForm
 
-global counter
-global another
-length = 0
-myList = []
-intList = []
-
 def index(request):
 	#return HttpResponse("Hello World!")
 	myForm = SimpleForm(request.POST or None)
 
+	global counter
+	global another
+	length = 0
+	myList = []
+	myOtherList = []
 	counter = 0
 	pinCount = 0
 	global context
 	context = {"form":myForm}
-	if request.POST.get('submit') == 'submit':
-		print('Submit clicked')
 
 	if myForm.is_valid():
 		length = (int)(myForm.cleaned_data.get("length"))
 		myList = request.POST.getlist("options")
-		myOtherList = []
 
 		first = (int)(myList[0]*length)
 		last = (int)(myList[len(myList)-1]*length)
@@ -42,20 +38,8 @@ def index(request):
 					print(str_pin)
 					myOtherList.append(str_pin);
 					pinCount += 1
-
-
-		'''for num in myList:
-			temp = (int)(num)
-			intList.append(temp)'''
-
-
-		
-		#print(myList)
-		#first = (int)(myList[0]*length)
-		#last = (int)(myList[len(myList)-1]*length)
 		
 		context = {'form':myForm,'length':pinCount, 'myList':myOtherList}
-
 
 	return render(request,"home.html",context)
 

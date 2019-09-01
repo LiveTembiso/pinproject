@@ -8,19 +8,25 @@
     		max-width: 200px;
     		margin:auto;
     	}	
+
+    	.output{
+    		list-style-type: none;
+    	}
     </style>
 </head>  
 <body>  
 <div class = "app">
-<form method="post">
+<form class = "output"; method="post">
 	{% csrf_token %}
 	{{form.as_p}}
 	<button type="submit" value="submit" name="submit">Submit</button>
 </form>
 <p>Possible pin count: {{ length }}</p>
+<textarea rows = "15" cols="23">
 {% for item in myList %}
-	<p>{{ item }}</p>
+	{{ item }}
 {% endfor %}
+</textarea>
 </div>
 </body>
 </html>
