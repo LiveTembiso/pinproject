@@ -3,17 +3,24 @@
 <head>  
     <meta charset="UTF-8">  
     <title>Pin App</title>  
+    <style>
+    	.app{
+    		max-width: 200px;
+    		margin:auto;
+    	}	
+    </style>
 </head>  
 <body>  
-
+<div class = "app">
 <form method="post">
 	{% csrf_token %}
 	{{form.as_p}}
 	<button type="submit" value="submit" name="submit">Submit</button>
 </form>
-<h1>{{ length }}</h1>
+<p>Possible pin count: {{ length }}</p>
 {% for item in myList %}
 	<p>{{ item }}</p>
 {% endfor %}
+</div>
 </body>
 </html>
