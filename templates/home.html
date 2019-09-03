@@ -24,7 +24,7 @@
 			{% if submit == "submit" %}
 				<p>Possible pin count: {{ length }}</p>
 				<textarea rows = "15" cols="23">
-					{% for item in myList %}
+					{% for item in options %}
 						{{ item }}
 					{% endfor %}
 				</textarea>
