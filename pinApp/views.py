@@ -6,6 +6,8 @@ from pinApp.forms import SimpleForm
 def index(request):
 	#return HttpResponse("Hello World!")
 	myForm = SimpleForm(request.POST or None)
+	submit = request.POST.get('submit')
+
 
 	global counter
 	global another
@@ -35,11 +37,10 @@ def index(request):
 
 				if counter == length:
 					
-					print(str_pin)
 					myOtherList.append(str_pin);
 					pinCount += 1
 		
-		context = {'form':myForm,'length':pinCount, 'myList':myOtherList}
+		context = {'form':myForm,'length':pinCount, 'myList':myOtherList, 'submit':submit}
 
 	return render(request,"home.html",context)
 

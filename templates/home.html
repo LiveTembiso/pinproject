@@ -1,32 +1,34 @@
 <!DOCTYPE html>  
 <html lang="en">  
-<head>  
-    <meta charset="UTF-8">  
-    <title>Pin App</title>  
-    <style>
-    	.app{
-    		max-width: 200px;
-    		margin:auto;
-    	}	
+	<head>  
+	    <meta charset="UTF-8">  
+	    <title>Pin App</title>  
+	    <style>
+	    	.app{
+	    		max-width: 200px;
+	    		margin:auto;
+	    	}	
 
-    	.output{
-    		list-style-type: none;
-    	}
-    </style>
-</head>  
-<body>  
-<div class = "app">
-<form class = "output"; method="post">
-	{% csrf_token %}
-	{{form.as_p}}
-	<button type="submit" value="submit" name="submit">Submit</button>
-</form>
-<p>Possible pin count: {{ length }}</p>
-<textarea rows = "15" cols="23">
-{% for item in myList %}
-	{{ item }}
-{% endfor %}
-</textarea>
-</div>
-</body>
+	    	ul{
+	    		list-style-type: none;
+	    	}
+	    </style>
+	</head>  
+	<body>  
+		<div class = "app">
+			<form class = "output"; method="post">
+				{% csrf_token %}
+				{{form.as_p}}
+				<button type="submit" value="submit" name="submit">Submit</button>
+			</form>
+			{% if submit == "submit" %}
+				<p>Possible pin count: {{ length }}</p>
+				<textarea rows = "15" cols="23">
+					{% for item in myList %}
+						{{ item }}
+					{% endfor %}
+				</textarea>
+			{% endif %}
+		</div>
+	</body>
 </html>
